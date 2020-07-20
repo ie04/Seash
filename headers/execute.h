@@ -1,5 +1,6 @@
 #ifndef EXECUTE_H
 #define EXECUTE_H 
+#include "builtin.h"
 int seash_execute(char **args) {
 	if(args[0] == NULL) {
 		return 1;
