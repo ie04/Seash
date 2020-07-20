@@ -8,13 +8,11 @@ int seash_exit(char **args);
 //Command list
 char *builtin_arr[] = {
 	"cd"'
-	"help",
 	"exit"
 };
 
 int  (*func_list[]) (char **) = {
 	&seash_cd,
-	&seash_help,
 	&seash_exit
 };
 
