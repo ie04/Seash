@@ -4,14 +4,14 @@
 #define DELIMETERS " \t\r\n\a"
 
 char **seash_tokenize_line(char *line){
-	int current_token_bufsize = TOKEN_BUFSIZE 
+	int current_token_bufsize = TOKEN_BUFSIZE; 
 	int current_position = 0;
 	char **tokens = malloc(current_token_bufsize * sizeof(char *));
 	char *token;
 
 	if(!tokens){
 		fprintf(stderr, "seash: memory allocation error\n");
-		exit(EXIT_FALIURE);
+		exit(EXIT_FAILURE);
 	}
 
 	token = strtok(line, DELIMETERS);
@@ -19,12 +19,12 @@ char **seash_tokenize_line(char *line){
 		tokens[current_position] = token;
 		current_position++;
 		
-		if(position >= current_token_bufsize) {
+		if(current_position >= current_token_bufsize) {
 			current_token_bufsize += TOKEN_BUFSIZE;
 			tokens = realloc(tokens, current_token_bufsize * sizeof(char *));
 			if(!tokens) {
 				fprintf(stderr, "seash: memory allocation error\n");
-				exit(EXIT_FAILIURE);
+				exit(EXIT_FAILURE);
 			}
 		}
 		token = strtok(NULL, DELIMETERS);

@@ -12,11 +12,11 @@ char *seash_read_line(void) {
 	//if buffer var is null throw error
 	if(!buffer){
 		fprintf(stderr, "seash: memory allocation error\n");
-		exit(EXIT_FAILIURE);
+		exit(EXIT_FAILURE);
 	}
 
 	//getchar loop for line reading; EOF and newline signal end of line
-	while(true) {
+	while(1) {
 		c = getchar();
 		
 		if(c == EOF || c == '\n') {
@@ -30,11 +30,11 @@ char *seash_read_line(void) {
 
 		//Check if buffer is exceeded and resize appropriately
 		if(current_position >= current_bufsize) {
-			bufsize += LINE_BUFSIZE;
+			current_bufsize += LINE_BUFSIZE;
 			buffer = realloc(buffer, current_bufsize);
 			if(!buffer){
 				fprintf(stderr, "seash: memory allocation error\n");
-				exit(EXIT_FAILIURE);
+				exit(EXIT_FAILURE);
 			}
 		}
 		

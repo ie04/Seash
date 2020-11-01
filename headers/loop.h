@@ -1,7 +1,7 @@
 #ifndef LOOP_H
 #define LOOP_H
-#include "read.h"
 #include "parse.h"
+#include "read.h"
 void seash_main_loop(void) {
 	char *line;
 	char **args;
@@ -11,7 +11,7 @@ void seash_main_loop(void) {
 		printf("seash> ");
 		line = seash_read_line();
 		args = seash_tokenize_line(line);
-		status = seash_run();
+		status = seash_execute(args);
 		
 		free(line);
 		free(args);
